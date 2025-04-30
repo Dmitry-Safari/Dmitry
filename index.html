@@ -3,45 +3,120 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Охота в Сибири</title>
+  <title>Royal Safari</title>
   <style>
-    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
-    h2 { margin-top: 40px; }
-    .gallery { display: flex; flex-wrap: wrap; gap: 10px; }
-    .gallery img { width: 300px; border-radius: 8px; }
-    iframe { width: 100%; height: 600px; border: none; margin-top: 20px; }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      width: 80px;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+    header h1 {
+      display: inline-block;
+      font-size: 32px;
+      vertical-align: middle;
+      margin: 0;
+    }
+    nav {
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #444;
+    }
+    .lang-switch {
+      margin-left: auto;
+      margin-right: 20px;
+    }
+    .lang-switch a {
+      color: #ffcc00;
+      margin-left: 10px;
+      text-decoration: none;
+    }
+    section {
+      background: rgba(0,0,0,0.6);
+      margin: 30px auto;
+      padding: 30px;
+      max-width: 1000px;
+      border-radius: 12px;
+    }
+    h2 {
+      color: #ffcc00;
+    }
+    .hidden {
+      display: none;
+    }
   </style>
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.classList.add('hidden');
+        if (el.dataset.lang === lang) {
+          el.classList.remove('hidden');
+        }
+      });
+      localStorage.setItem('lang', lang);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('lang');
+      const lang = saved || (navigator.language.startsWith('zh') ? 'zh' : 'ru');
+      setLang(lang);
+    });
+  </script>
 </head>
 <body>
-  <h1>Охота в Сибири</h1>
-  <p>Наша команда предлагает охотничьи туры в сибирской тайге с комфортным проживанием и профессиональными гидами.</p>
 
-  <h2>Галерея</h2>
-  <div class="gallery">
-    <img src="IMG_7406.jpg" alt="Фото">
-    <img src="IMG_7417.jpg" alt="Фото">
-    <img src="IMG_7418.jpg" alt="Фото">
+<header>
+  <img src="logo.jpg" alt="Логотип">
+  <h1>Royal Safari — Охота в Сибири</h1>
+</header>
+
+<nav>
+  <a href="#about">О туре</a>
+  <div class="lang-switch">
+    <a href="#" onclick="setLang('ru'); return false;">🇷🇺</a>
+    <a href="#" onclick="setLang('zh'); return false;">🇨🇳</a>
   </div>
+</nav>
 
-  <h2>Больше фото</h2>
-  <div class="gallery">
-    <img src="IMG_7428.jpg" alt="Фото">
-    <img src="IMG_7429.jpg" alt="Фото">
-    <img src="IMG_7431.jpg" alt="Фото">
-    <img src="IMG_7432.jpg" alt="Фото">
-    <img src="IMG_7433.jpg" alt="Фото">
-    <img src="IMG_7435.jpg" alt="Фото">
+<section id="about">
+  <div data-lang="ru">
+    <h2>О туре</h2>
+    <p><strong>Где-то в сердце Сибири, среди бескрайних лесов и первозданной природы, вас ждет место, где рождаются воспоминания — кордон «Восточный Саян».</strong></p>
+    <p>Место, где время замедляется, а приключения начинаются с первого вздоха таёжного воздуха.</p>
+    <p>Вас встретят по-русски: хлебом-солью, стопкой ледяной водки и закуской, от которой дух захватывает. А после — роскошные таежные апартаменты, где каждая деталь создана для комфорта, пропитана уютом и охотничьей романтикой.</p>
+    <p><strong>Но главное — впереди.</strong></p>
+    <p>Выбирайте оружие, проверьте меткость, отправляйтесь на настоящую охоту с егерями. После — баня, костер и душевные вечера. Каждый день — это приключение.</p>
   </div>
-
-  <h2>Программа тура (на китайском языке)</h2>
-  <iframe src="program_cn.pdf"></iframe>
-
-
-  
-  <h2>Контакты</h2>
-  <p>📞 Телефон / WhatsApp: <a href="https://wa.me/79025109829" target="_blank">+7 (902) 510-98-29</a></p>
-  <p>💬 WeChat ID: <strong>royalhunt2025</strong></p>
-
+  <div data-lang="zh" class="hidden">
+    <h2>关于狩猎之旅</h2>
+    <p><strong>在西伯利亚的心脏地带，在无边的森林和原始自然之间，等待着一个创造回忆的地方 —— 东萨彦猎营。</strong></p>
+    <p>在那里时间变慢，冒险从第一口清新的空气开始。</p>
+    <p>我们会以俄式传统欢迎您：黑面包和盐，一杯冰伏特加，还有令人惊叹的下酒菜。之后是舒适豪华的木屋，温暖的氛围和浓厚的猎人文化。</p>
+    <p><strong>而真正的体验才刚刚开始。</strong></p>
+    <p>选择武器，测试精准度，与经验丰富的向导一同进入真正的狩猎之旅。晚间，蒸汽桑拿和篝火谈天，每一天都是新的冒险。</p>
+  </div>
+</section>
 
 </body>
 </html>
