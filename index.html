@@ -105,9 +105,13 @@
 </head>
 <body>
 
-<div class="lang">
-  <a href="#">RU</a> | <a href="#">EN</a> | <a href="#">CN</a>
+
+<div class="lang" id="lang-switch">
+  <a href="#" data-lang="ru" title="Русский">🇷🇺</a>
+  <a href="#" data-lang="en" title="English">🇬🇧</a>
+  <a href="#" data-lang="cn" title="中文">🇨🇳</a>
 </div>
+
 
 <header>
   <img src="Логотип.jpg" alt="Royal Safari Logo" />
@@ -178,6 +182,27 @@
     document.getElementById(tabId).classList.add("active");
     window.scrollTo(0, 0);
   }}
+</script>
+
+
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('.lang-block').forEach(el => {
+      el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('lang') || 'ru';
+    switchLanguage(saved);
+    document.querySelectorAll('#lang-switch a').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchLanguage(btn.dataset.lang);
+      });
+    });
+  });
 </script>
 
 </body>
