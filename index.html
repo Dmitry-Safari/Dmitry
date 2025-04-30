@@ -2,133 +2,102 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Royal Safari</title>
   <style>
     body {
-      font-family: sans-serif;
       margin: 0;
-      padding: 0;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      font-family: sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
+      color: white;
     }
     header {
-      background: rgba(0,0,0,0.7);
-      padding: 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.6);
     }
     header img {
-      width: 100px;
-      margin-bottom: 10px;
+      height: 80px;
     }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    .slogan {
+      color: #FFD700;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: 10px;
     }
-    p {
-      font-size: 18px;
-      max-width: 850px;
-      margin: 10px auto;
-      line-height: 1.6;
+    .lang {
+      position: absolute;
+      top: 10px;
+      right: 20px;
     }
     nav {
-      background: rgba(0,0,0,0.85);
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
+      gap: 30px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.7);
     }
     nav a {
       color: white;
-      padding: 12px 20px;
       text-decoration: none;
       font-weight: bold;
     }
-    nav a:hover {
-      background-color: #444;
+    section {
+      max-width: 800px;
+      margin: 30px auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <img src="logo.jpg" alt="Логотип">
-  <h1>Royal Safari — Охота в Сибири</h1>
-  
-<p>Представьте: вы просыпаетесь в деревянном доме посреди величественной сибирской тайги.<br>
-За окном — горы в утреннем тумане, рядом потрескивает печь, а воздух свежий и кристально чистый.</p>
-<p>Royal Safari — это не просто охота. Это возможность сбежать от суеты, вдохнуть природу на полные лёгкие и побыть настоящим.</p>
-<p>Вас ждут захватывающие вылазки с егерями, комфортные условия проживания, настоящая русская баня и вечерние разговоры у огня.</p>
-<p>Мы создаём атмосферу, где каждый момент наполнен смыслом: от выстрела по мишени до чашки чая у печи.</p>
-<p>Здесь вы перезагрузитесь, прочувствуете природу и уедете с воспоминаниями на всю жизнь.</p>
-<p><strong>Добро пожаловать в сердце Сибири. Добро пожаловать в Royal Safari.</strong></p>
-
-</header>
-
-<nav>
-  <a href="#about">О туре</a>
-  <a href="#gallery">Галерея</a>
-  <a href="#video">Видео</a>
-  <a href="#program">Программа</a>
-  <a href="#contacts">Контакты</a>
-
-</nav>
-<section id="about" style="display:none;">
-    <h2>О туре</h2>
-    <p><strong>Где-то в сердце Сибири, в дали от шумных городов, среди бескрайних лесов и первозданной природы, вас ждет место, где рождаются воспоминания — кордон «Восточный Саян».</strong></p>
-    <p>Место, где время замедляется, а приключения начинаются с первого вздоха таёжного воздуха. Вас встретят по-русски: хлебом-солью, стопкой ледяной водки и закуской, от которой дух захватывает. А после — роскошные таежные апартаменты, где каждая деталь создана для комфорта, пропитана уютом и охотничьей романтикой.</p>
-    <p><strong>Но главное — впереди.</strong></p>
-    <p>Выбирайте оружие, проверьте меткость, отправляйтесь на настоящую охоту с егерями. После — баня, костер и душевные вечера. Каждый день — это приключение.</p>
-    </section><section id="gallery" style="display:none;">
-    <h2>Галерея</h2>
-    <div class="gallery">
-    <img src="IMG_7406.jpg" alt="Фото"><img src="IMG_7417.jpg" alt="Фото"><img src="IMG_7418.jpg" alt="Фото"><img src="IMG_7428.jpg" alt="Фото"><img src="IMG_7429.jpg" alt="Фото"><img src="IMG_7431.jpg" alt="Фото"><img src="IMG_7432.jpg" alt="Фото"><img src="IMG_7433.jpg" alt="Фото"><img src="IMG_7435.jpg" alt="Фото">
+  <header>
+    <img src="Логотип.jpg" alt="Royal Safari Logo" />
+    <div class="lang">
+      <a href="#">RU</a> | <a href="#">EN</a> | <a href="#">CN</a>
     </div>
-    </section><section id="video" style="display:none;">
-    <h2>Видео</h2>
-    <iframe src="https://www.youtube.com/embed/Pze--ZmU0lQ" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/bQgMMwl0mRw" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/CxsKpHQOJbM" allowfullscreen></iframe>
-    </section><section id="program" style="display:none;">
-    <h2>Программа тура</h2>
-    <ul>
-      <li>Маршрут: Иркутск — Кордон — Иркутск</li>
-      <li>Продолжительность: 4 дня / 3 ночи</li>
-      <li>День 1: трансфер, фотоостановки, заселение, баня и ужин из дичи</li>
-      <li>День 2: охота, рыбалка, катание на вездеходах, русская баня</li>
-      <li>День 3: стрельба (гладкоствольное, арбалет, стендовая)</li>
-      <li>День 4: выезд с кордона и трансфер в Иркутск</li>
-    </ul>
-    <a class="button" href="program_ru.pdf" download>📄 Скачать на русском</a>
-    <a class="button" href="program_cn.pdf" download>📄 Скачать на китайском</a>
-    </section><section id="contacts" style="display:none;">
-    <h2>Контакты</h2>
-    <p>📞 WhatsApp: <a href="https://wa.me/79025109829" target="_blank" style="color:#ffcc00;">+7 (902) 510-98-29</a></p>
-    <p>💬 Telegram: <a href="https://t.me/+79025109829" target="_blank" style="color:#ffcc00;">+7 (902) 510-98-29</a></p>
-    <p>🇨🇳 WeChat ID: <strong>royalhunt2025</strong></p>
-    </section>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = ["about", "gallery", "video", "program", "contacts"];
-    function showTab(id) {
-      sections.forEach(s => {
-        const el = document.getElementById(s);
-        if (el) el.style.display = s === id ? "block" : "none";
-      });
-    }
-    document.querySelectorAll("nav a").forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = link.getAttribute("href").substring(1);
-        showTab(target);
-        window.scrollTo({ top: document.getElementById(target).offsetTop, behavior: 'smooth' });
-      });
-    });
-    showTab("about");
-  });
-</script>
+  </header>
 
+  <div class="slogan">
+    Добро пожаловать в сердце Сибири<br />
+    Добро пожаловать в Royal Safari
+  </div>
 
+  <nav>
+    <a href="#about">О нас</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#video">Видео</a>
+    <a href="#program">Программа</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+
+  <section id="about">
+    <h2>О нас</h2>
+    <p>Royal Safari — это не просто охота, это путь в сердце настоящей Сибири.</p>
+    <p>Здесь, вдали от цивилизации, вас ждут бескрайние леса, чистейший воздух и свобода, которую вы почувствуете с первым шагом по таёжной тропе.</p>
+    <p>Наш тур — это уникальное сочетание первозданной природы и комфортного отдыха: охотничий кордон, русская баня, блюда из дичи, ночи у костра.</p>
+    <p>Вас встретят профессиональные егеря, тёплый приём и настоящая сибирская душа.</p>
+    <p>Мы делаем не просто туры — мы создаём истории, о которых хочется рассказывать.</p>
+    <p>От первого выстрела до последнего вечера на базе вы будете жить по-настоящему.</p>
+    <p>Откройте Сибирь такой, какой её не знает никто.</p>
+    <p><strong>Добро пожаловать в Royal Safari.</strong></p>
+  </section>
+
+  <footer>
+    Связь: WhatsApp / Telegram / WeChat<br />
+    📞 +7 902 510 98 29
+  </footer>
 </body>
 </html>
