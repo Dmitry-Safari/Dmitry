@@ -106,7 +106,7 @@
 <body>
 
 
-<div class="lang" id="lang-switch">
+<div class="lang-switch" style="position:absolute;top:10px;right:20px;font-size:24px;">
   <a href="#" data-lang="ru" title="Русский">🇷🇺</a>
   <a href="#" data-lang="en" title="English">🇬🇧</a>
   <a href="#" data-lang="cn" title="中文">🇨🇳</a>
@@ -162,12 +162,16 @@
   <a class="button" href="program_en.pdf" download>📄 Скачать на английском</a>
 </section>
 
-<section id="contacts">
-  <h2>Контакты</h2>
-  <p>📞 WhatsApp: <a href="https://wa.me/79025109829" target="_blank" style="color:#ffcc00;">+7 (902) 510-98-29</a></p>
-  <p>💬 Telegram: <a href="https://t.me/+79025109829" target="_blank" style="color:#ffcc00;">+7 (902) 510-98-29</a></p>
-  <p>🇨🇳 WeChat ID: <strong>royalhunt2025</strong></p>
-</section>
+<section id="contacts"><div class="lang-block" data-lang="ru">
+<h2>Контакты</h2>
+<p>Свяжитесь с нами через удобные мессенджеры:</p>
+<p style="font-size: 24px;">
+  <a class="button" href="https://wa.me/79025109829" target="_blank" title="WhatsApp">🟢 WhatsApp</a>
+  <a class="button" href="https://t.me/+79025109829" target="_blank" title="Telegram">🔵 Telegram</a>
+  <a class="button" href="#" onclick="alert('Добавьте в WeChat вручную: royalhunt2025'); return false;" title="WeChat">🟩 WeChat</a>
+</p>
+<p>📞 Телефон: +7 902 510 98 29</p>
+</div></section>
 
 <footer>
   Связь: WhatsApp / Telegram / WeChat<br />
@@ -186,20 +190,24 @@
 
 
 <script>
-  function switchLanguage(lang) {
-    document.querySelectorAll('.lang-block').forEach(el => {
-      el.style.display = el.dataset.lang === lang ? 'block' : 'none';
-    });
-    localStorage.setItem('lang', lang);
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+    function switchLanguage(lang) {
+      const blocks = document.querySelectorAll(".lang-block");
+      blocks.forEach(block => {
+        block.style.display = (block.dataset.lang === lang) ? "block" : "none";
+      });
+      localStorage.setItem("lang", lang);
+    }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('lang') || 'ru';
-    switchLanguage(saved);
-    document.querySelectorAll('#lang-switch a').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    const current = localStorage.getItem("lang") || "ru";
+    switchLanguage(current);
+
+    const switchers = document.querySelectorAll('.lang-switch a');
+    switchers.forEach(btn => {
+      btn.addEventListener('click', function (e) {
         e.preventDefault();
-        switchLanguage(btn.dataset.lang);
+        const lang = btn.dataset.lang;
+        switchLanguage(lang);
       });
     });
   });
