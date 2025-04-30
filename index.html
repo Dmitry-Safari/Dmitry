@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Охота в Сибири / Taiga Hunt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f9f9f6; color: #2e3d2f; line-height: 1.6; }
+    header, footer { background: #2d4a2a; color: white; padding: 1.5rem; text-align: center; }
+    nav { background: #40613e; display: flex; justify-content: center; gap: 2rem; padding: 1rem; }
+    nav a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+    nav a:hover { color: #d4f1c5; }
+    .lang-switch { position: absolute; top: 1rem; right: 1rem; }
+    .lang-switch button {
+      background: #2d4a2a; color: white; border: none; padding: 0.5rem 0.8rem;
+      margin-left: 0.5rem; cursor: pointer; border-radius: 5px;
+      font-weight: bold; transition: background 0.3s;
+    }
+    .lang-switch button:hover { background: #3e6c3a; }
+    section { padding: 3rem 2rem; max-width: 1000px; margin: auto; }
+    h1, h2 { margin-bottom: 1rem; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .gallery img {
+      width: 100%; max-width: 300px; border-radius: 10px;
+      cursor: pointer; transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+    .modal {
+      display: none; position: fixed; z-index: 10; left: 0; top: 0;
+      width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);
+      align-items: center; justify-content: center;
+    }
+    .modal img { max-width: 90%; max-height: 90%; border-radius: 10px; }
+    .modal.active { display: flex; }
+    @media (max-width: 600px) {
+      nav { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 id="title">Охота в Сибири</h1>
+  <div class="lang-switch">
+    <button onclick="setLang('ru')">RU</button>
+    <button onclick="setLang('zh')">中文</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<nav>
+  <a href="#about" id="nav-about">О туре</a>
+  <a href="#gallery" id="nav-gallery">Галерея</a>
+  <a href="#more-gallery">Больше фото</a>
+  <a href="#program" id="nav-program">Программа</a>
+</nav>
+
+<section id="about">
+  <h2 id="about-title">О туре</h2>
+  <p id="about-text">Наша команда предлагает охотничьи туры в сибирской тайге с комфортным проживанием и профессиональными гидами.</p>
+</section>
+
+<section id="gallery">
+  <h2 id="gallery-title">Галерея</h2>
+  <div class="gallery">
+<img src="C9083513-2C26-4452-ABD9-C2243623E1D4.jpeg" alt="Фото" />
+<img src="641FFE86-D2D8-4D72-9E6C-B4BE4A458671.jpeg" alt="Фото" />
+<img src="175FED63-F28D-4892-9228-E5B54E1A9734.jpeg" alt="Фото" />
+
+  </div>
+</section>
+
+<section id="more-gallery">
+  <h2>Больше фото</h2>
+  <div class="gallery">
+<img src="IMG_7400.jpg" alt="Фото" />
+<img src="IMG_7406.jpg" alt="Фото" />
+<img src="IMG_7411.jpg" alt="Фото" />
+<img src="IMG_7416.jpg" alt="Фото" />
+<img src="IMG_7417.jpg" alt="Фото" />
+<img src="IMG_7418.jpg" alt="Фото" />
+<img src="IMG_7433.jpg" alt="Фото" />
+<img src="IMG_7420.jpg" alt="Фото" />
+<img src="IMG_7423.jpg" alt="Фото" />
+<img src="IMG_7429.jpg" alt="Фото" />
+<img src="IMG_7425.jpg" alt="Фото" />
+<img src="IMG_7434.jpg" alt="Фото" />
+<img src="IMG_7435.jpg" alt="Фото" />
+<img src="IMG_7427.jpg" alt="Фото" />
+<img src="IMG_7431.jpg" alt="Фото" />
+<img src="IMG_7432.jpg" alt="Фото" />
+<img src="IMG_7428.jpg" alt="Фото" />
+
+  </div>
+</section>
+
+<section id="program">
+  <h2 id="program-title">Программа тура</h2>
+  <p id="program-text">Здесь будет размещено подробное описание программы на 7 дней. (на всех языках)</p>
+</section>
+
+<footer>
+  &copy; 2025 Taiga Hunt Russia
+</footer>
+
+<div class="modal" id="modal">
+  <img id="modal-img" src="" alt="Zoomed">
+</div>
+
+<script>
+  const langData = {
+    ru: {
+      title: "Охота в Сибири",
+      "nav-about": "О туре",
+      "nav-gallery": "Галерея",
+      "nav-program": "Программа",
+      "about-title": "О туре",
+      "about-text": "Наша команда предлагает охотничьи туры в сибирской тайге с комфортным проживанием и профессиональными гидами.",
+      "gallery-title": "Галерея",
+      "program-title": "Программа тура",
+      "program-text": "Здесь будет размещено подробное описание программы на 7 дней. (на всех языках)"
+    },
+    zh: {
+      title: "西伯利亚狩猎",
+      "nav-about": "行程介绍",
+      "nav-gallery": "图片展示",
+      "nav-program": "行程安排",
+      "about-title": "关于行程",
+      "about-text": "我们在西伯利亚原始森林组织狩猎之旅，舒适住宿，专业向导全程陪同。",
+      "gallery-title": "图片展示",
+      "program-title": "行程安排",
+      "program-text": "这里将展示为期7天的详细行程安排（支持多语言）。"
+    },
+    en: {
+      title: "Taiga Hunting Tour",
+      "nav-about": "About Tour",
+      "nav-gallery": "Gallery",
+      "nav-program": "Itinerary",
+      "about-title": "About the Tour",
+      "about-text": "We organize hunting tours in the Siberian taiga with comfortable lodging and professional guides.",
+      "gallery-title": "Gallery",
+      "program-title": "Tour Itinerary",
+      "program-text": "A detailed 7-day itinerary will be shown here. (Multilingual)"
+    }
+  };
+
+  function setLang(lang) {
+    const elements = langData[lang];
+    for (const id in elements) {
+      document.getElementById(id).textContent = elements[id];
+    }
+    document.documentElement.lang = lang;
+    localStorage.setItem("lang", lang);
+  }
+
+  window.onload = () => {
+    const savedLang = localStorage.getItem("lang") || "ru";
+    setLang(savedLang);
+  };
+
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  document.querySelectorAll(".gallery img").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.classList.add("active");
+      modalImg.src = img.src;
+    });
+  });
+  modal.addEventListener("click", () => {
+    modal.classList.remove("active");
+    modalImg.src = "";
+  });
+</script>
+
+</body>
+</html>
