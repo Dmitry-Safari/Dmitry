@@ -2,6 +2,16 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
+  <meta name="description" content="Royal Safari — охотничий тур в сердце Сибири. Уникальный опыт, комфорт, природа, охота.">
+  <meta name="keywords" content="Royal Safari, охота, Сибирь, туризм, природа, сафари, охотничий тур">
+  <meta name="author" content="Royal Safari">
+  <meta property="og:title" content="Royal Safari — охота в Сибири">
+  <meta property="og:description" content="Добро пожаловать в Royal Safari — уникальные охотничьи туры в сердце Сибири">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="Логотип.jpg">
+  <link rel="icon" type="image/jpeg" href="Логотип.jpg" />
+
   <meta charset="UTF-8" />
   <title>Royal Safari</title>
   <style>
@@ -101,7 +111,106 @@
       font-size: 14px;
       padding: 20px;
     }
-  </style>
+  
+    .nav-link.active {
+      text-decoration: underline;
+      border-bottom: 2px solid #FFD700;
+    }
+    section {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    section.active {
+      display: block !important;
+      opacity: 1;
+    }
+    
+    @media (max-width: 768px) {
+      header img {
+        height: 60px;
+      }
+      .slogan {
+        font-size: 18px;
+        padding: 0 10px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .lang {
+        top: 5px;
+        right: 10px;
+        font-size: 14px;
+      }
+    }
+    
+<style>
+  .lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 4px solid white;
+    border-radius: 10px;
+  }
+
+<style>
+  .video-grid {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }}
+  .video-card {{
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 8px;
+  }}
+  .video-card h3 {{
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #FFD700;
+  }}
+  .video-card iframe {{
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+  }}
+</style>
+</style>
+
+<style>
+  .video-grid {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }}
+  .video-card {{
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 8px;
+  }}
+  .video-card h3 {{
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #FFD700;
+  }}
+  .video-card iframe {{
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+  }}
+</style>
+</style>
 </head>
 <body>
 
@@ -118,11 +227,11 @@
 </header>
 
 <nav>
-  <a href="#" onclick="showTab('about')">О нас</a>
-  <a href="#" onclick="showTab('gallery')">Галерея</a>
-  <a href="#" onclick="showTab('video')">Видео</a>
-  <a href="#" onclick="showTab('program')">Программа</a>
-  <a href="#" onclick="showTab('contacts')">Контакты</a>
+  <a href="#" class="nav-link active" onclick="showTab('about', this)">О нас</a>
+  <a href="#" onclick="showTab('gallery', this)">Галерея</a>
+  <a href="#" onclick="showTab('video', this)">Видео</a>
+  <a href="#" onclick="showTab('program', this)">Программа</a>
+  <a href="#" onclick="showTab('contacts', this)">Контакты</a>
 </nav>
 
 <section id="about" class="active">
@@ -137,33 +246,101 @@
   <p><strong>Добро пожаловать в Royal Safari.</strong></p>
 </section>
 
+
 <section id="gallery">
-  <h2>Галерея</h2>
-  <div class="gallery">
-<img src="IMG_7406.jpg" alt="Фото" /><img src="IMG_7417.jpg" alt="Фото" /><img src="IMG_7418.jpg" alt="Фото" /><img src="IMG_7428.jpg" alt="Фото" /><img src="IMG_7429.jpg" alt="Фото" /><img src="IMG_7431.jpg" alt="Фото" /><img src="IMG_7432.jpg" alt="Фото" /><img src="IMG_7433.jpg" alt="Фото" /><img src="IMG_7435.jpg" alt="Фото" />
-  </div>
+  <div class="lang-block" data-lang="ru"><h2>Галерея</h2><div class="gallery"><img src="IMG_7406.jpg" alt="Фото" /><img src="IMG_7418.jpg" alt="Фото" /><img src="IMG_7428.jpg" alt="Фото" /><img src="IMG_7429.jpg" alt="Фото" /><img src="IMG_7431.jpg" alt="Фото" /><img src="IMG_7432.jpg" alt="Фото" /><img src="IMG_7433.jpg" alt="Фото" /></div></div>
+  <div class="lang-block" data-lang="en" style="display:none;"><h2>Gallery</h2><div class="gallery"><img src="IMG_7406.jpg" alt="Photo" /><img src="IMG_7418.jpg" alt="Photo" /><img src="IMG_7428.jpg" alt="Photo" /><img src="IMG_7429.jpg" alt="Photo" /><img src="IMG_7431.jpg" alt="Photo" /><img src="IMG_7432.jpg" alt="Photo" /><img src="IMG_7433.jpg" alt="Photo" /></div></div>
+  <div class="lang-block" data-lang="cn" style="display:none;"><h2>画廊</h2><div class="gallery"><img src="IMG_7406.jpg" alt="照片" /><img src="IMG_7418.jpg" alt="照片" /><img src="IMG_7428.jpg" alt="照片" /><img src="IMG_7429.jpg" alt="照片" /><img src="IMG_7431.jpg" alt="照片" /><img src="IMG_7432.jpg" alt="照片" /><img src="IMG_7433.jpg" alt="照片" /></div></div>
 </section>
+
+
 
 <section id="video">
-  <h2>Видео</h2>
-  <iframe src="https://www.youtube.com/embed/Pze--ZmU0lQ" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/bQgMMwl0mRw" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/CxsKpHQOJbM" allowfullscreen></iframe>
+  <div class="lang-block" data-lang="ru">
+<h2>Видео</h2>
+<div class="video-grid">
+  <div class="video-card"><h3>Обзор базы</h3><iframe src="https://www.youtube.com/embed/Pze--ZmU0lQ" allowfullscreen></iframe></div>
+  <div class="video-card"><h3>Интерьер бани</h3><iframe src="https://www.youtube.com/embed/bQgMMwl0mRw" allowfullscreen></iframe></div>
+  <div class="video-card"><h3>Наш тур</h3><iframe src="https://www.youtube.com/embed/CxsKpHQOJbM" allowfullscreen></iframe></div>
+</div></div>
+  <div class="lang-block" data-lang="en" style="display:none;">
+<h2>Videos</h2>
+<div class="video-grid">
+  <div class="video-card"><h3>Base overview</h3><iframe src="https://www.youtube.com/embed/Pze--ZmU0lQ" allowfullscreen></iframe></div>
+  <div class="video-card"><h3>Bathhouse interior</h3><iframe src="https://www.youtube.com/embed/bQgMMwl0mRw" allowfullscreen></iframe></div>
+  <div class="video-card"><h3>Our tour</h3><iframe src="https://www.youtube.com/embed/CxsKpHQOJbM" allowfullscreen></iframe></div>
+</div></div>
+  <div class="lang-block" data-lang="cn" style="display:none;">
+<h2>视频</h2>
+<div class="video-grid">
+  <div class="video-card"><h3>基地概览</h3><iframe src="https://www.youtube.com/embed/Pze--ZmU0lQ" allowfullscreen></iframe></div>
+  <div class="video-card"><h3>桑拿内部</h3><iframe src="https://www.youtube.com/embed/bQgMMwl0mRw" allowfullscreen></iframe></div>
+  <div class="video-card"><h3>我们的旅程</h3><iframe src="https://www.youtube.com/embed/CxsKpHQOJbM" allowfullscreen></iframe></div>
+</div></div>
 </section>
+
+
+
 
 <section id="program">
-  <h2>Программа тура</h2>
-  <a class="button" href="program_ru.pdf" download>📄 Скачать на русском</a>
-  <a class="button" href="program_cn.pdf" download>📄 Скачать на китайском</a>
-  <a class="button" href="program_en.pdf" download>📄 Скачать на английском</a>
+  <div class="lang-block" data-lang="ru">
+<h2>Программа тура</h2>
+<p>Наш тур рассчитан на 4 дня и 3 ночи. Вас ждут охотничьи выезды, комфортное проживание на кордоне, баня, ужины у костра, рыбалка и многое другое.</p>
+<p>Скачайте подробную программу тура:</p>
+<a class="button" href="program_ru.pdf" download>📄 Скачать на русском</a>
+<a class="button" href="program_cn.pdf" download>📄 Скачать на китайском</a>
+<a class="button" href="program_en.pdf" download>📄 Скачать на английском</a>
+</div>
+  <div class="lang-block" data-lang="en" style="display:none;">
+<h2>Tour Program</h2>
+<p>Our tour lasts 4 days and 3 nights. You’ll experience guided hunting, cozy accommodation, Russian sauna, fireside dinners, fishing, and more.</p>
+<p>Download the detailed program:</p>
+<a class="button" href="program_en.pdf" download>📄 English</a>
+<a class="button" href="program_ru.pdf" download>📄 Russian</a>
+<a class="button" href="program_cn.pdf" download>📄 Chinese</a>
+</div>
+  <div class="lang-block" data-lang="cn" style="display:none;">
+<h2>行程安排</h2>
+<p>我们的旅程为期4天3夜，包括狩猎、舒适住宿、桑拿、篝火晚餐和钓鱼等活动。</p>
+<p>下载详细行程：</p>
+<a class="button" href="program_cn.pdf" download>📄 中文</a>
+<a class="button" href="program_ru.pdf" download>📄 俄文</a>
+<a class="button" href="program_en.pdf" download>📄 英文</a>
+</div>
 </section>
 
+
+
+
+
 <section id="contacts">
-  <h2>Контакты</h2>
-  <p>📞 WhatsApp: <a href="https://wa.me/79025109829" target="_blank" style="color:#ffcc00;">+7 (902) 510-98-29</a></p>
-  <p>💬 Telegram: <a href="https://t.me/+79025109829" target="_blank" style="color:#ffcc00;">+7 (902) 510-98-29</a></p>
-  <p>🇨🇳 WeChat ID: <strong>royalhunt2025</strong></p>
+  <div class="lang-block" data-lang="ru">
+<h2>Контакты</h2>
+<p>Связаться с нами вы можете через удобный мессенджер:</p>
+<p><a class="button" href="https://wa.me/79025109829" target="_blank">💬 WhatsApp</a>
+<a class="button" href="https://t.me/+79025109829" target="_blank">💬 Telegram</a>
+<a class="button" href="#" onclick="alert('Добавьте в WeChat вручную: royalhunt2025'); return false;">💬 WeChat</a></p>
+<p>📞 Телефон: +7 902 510 98 29</p>
+</div>
+  <div class="lang-block" data-lang="en" style="display:none;">
+<h2>Contacts</h2>
+<p>Contact us via any messenger below:</p>
+<p><a class="button" href="https://wa.me/79025109829" target="_blank">💬 WhatsApp</a>
+<a class="button" href="https://t.me/+79025109829" target="_blank">💬 Telegram</a>
+<a class="button" href="#" onclick="alert('Добавьте в WeChat вручную: royalhunt2025'); return false;">💬 WeChat</a></p>
+<p>📞 Phone: +7 902 510 98 29</p>
+</div>
+  <div class="lang-block" data-lang="cn" style="display:none;">
+<h2>联系方式</h2>
+<p>欢迎通过以下方式联系我们：</p>
+<p><a class="button" href="https://wa.me/79025109829" target="_blank">💬 WhatsApp</a>
+<a class="button" href="https://t.me/+79025109829" target="_blank">💬 Telegram</a>
+<a class="button" href="#" onclick="alert('Добавьте в WeChat вручную: royalhunt2025'); return false;">💬 WeChat</a></p>
+<p>📞 电话: +7 902 510 98 29</p>
+</div>
 </section>
+
+
 
 <footer>
   Связь: WhatsApp / Telegram / WeChat<br />
@@ -171,13 +348,62 @@
 </footer>
 
 <script>
-  function showTab(tabId) {{
-    document.querySelectorAll("section").forEach(section => {{
-      section.classList.remove("active");
-    }});
+  function 
+    showTab = function(tabId, el) {
+      document.querySelectorAll("section").forEach(section => {
+        section.classList.remove("active");
+      });
+      document.getElementById(tabId).classList.add("active");
+
+      document.querySelectorAll("nav a").forEach(link => {
+        link.classList.remove("active");
+      });
+      if (el) el.classList.add("active");
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    });
     document.getElementById(tabId).classList.add("active");
     window.scrollTo(0, 0);
   }}
+</script>
+
+
+<div class="lightbox-overlay" id="lightbox" onclick="this.style.display='none'">
+  <img id="lightbox-img" src="" alt="Preview" />
+</div>
+<script>
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.style.cursor = "pointer";
+    img.addEventListener('click', () => {
+      const lightbox = document.getElementById('lightbox');
+      const preview = document.getElementById('lightbox-img');
+      preview.src = img.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+</script>
+
+
+<!-- Google Analytics / Yandex Metrica can be inserted here -->
+
+
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('.lang-block').forEach(el => {
+      el.style.display = (el.dataset.lang === lang) ? 'block' : 'none';
+    });
+    localStorage.setItem('lang', lang);
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('lang') || 'ru';
+    switchLanguage(saved);
+    document.querySelectorAll('.lang a').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchLanguage(btn.dataset.lang);
+      });
+    });
+  });
 </script>
 
 </body>
